@@ -13,8 +13,16 @@ export default function Portfolio() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Define a specific type for the bubble's properties
+  type Bubble = {
+    left: string;
+    size: string;
+    animationDuration: string;
+    animationDelay: string;
+  };
+
   // Add this new state for the bubbles
-  const [bubbles, setBubbles] = useState<any[]>([]);
+  const [bubbles, setBubbles] = useState<Bubble[]>([]);
 
   // Load theme preference on mount
   useEffect(() => {
@@ -55,23 +63,23 @@ export default function Portfolio() {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleFormChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleFormSubmit = async (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault(); // This is correct
+  setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    alert('Message sent successfully!');
+  // Simulate form submission
+  await new Promise(resolve => setTimeout(resolve, 1500));
+  
+  setIsSubmitting(false);
+  setFormData({ name: '', email: '', subject: '', message: '' });
+  alert('Message sent successfully!');
   };
 
   const skills = [
@@ -352,7 +360,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className={`py-20 ${
+      {/* <section id="contact" className={`py-20 ${
         isDarkMode ? 'bg-slate-900' : 'bg-gray-50'
       }`}>
         <div className="max-w-4xl mx-auto px-4">
@@ -368,7 +376,7 @@ export default function Portfolio() {
             </p>
           </div>
           
-          <div onSubmit={handleFormSubmit} className="space-y-6">
+          <form onSubmit={handleFormSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
@@ -443,9 +451,9 @@ export default function Portfolio() {
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </div>
-          </div>
+          </form>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className={`py-12 ${
