@@ -1,19 +1,19 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function Portfolio() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isNavScrolled, setIsNavScrolled] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Define a specific type for the bubble's properties
+  // Define a specific type for the bubble"s properties
   type Bubble = {
     left: string;
     size: string;
@@ -26,16 +26,16 @@ export default function Portfolio() {
 
   // Load theme preference on mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
       setIsDarkMode(true);
     }
   }, []);
 
   // Save theme preference when changed
   useEffect(() => {
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    document.body.setAttribute("data-theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
   // Handle scroll effect for navbar
@@ -44,8 +44,8 @@ export default function Portfolio() {
       setIsNavScrolled(window.scrollY > 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function Portfolio() {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -78,61 +78,61 @@ export default function Portfolio() {
   await new Promise(resolve => setTimeout(resolve, 1500));
   
   setIsSubmitting(false);
-  setFormData({ name: '', email: '', subject: '', message: '' });
-  alert('Message sent successfully!');
+  setFormData({ name: "", email: "", subject: "", message: "" });
+  alert("Message sent successfully!");
   };
 
   const skills = [
     {
-      category: '🎨 Frontend Development',
-      items: ['React.js / Next.js', 'Vue.js / Nuxt.js', 'TypeScript / JavaScript', 'HTML5 / CSS3 / SASS', 'Tailwind CSS', 'Responsive Design']
+      category: "🎨 Frontend Development",
+      items: ["React.js / Next.js", "Vue.js / Nuxt.js", "TypeScript / JavaScript", "HTML5 / CSS3 / SASS", "Tailwind CSS", "Responsive Design"]
     },
     {
-      category: '⚙️ Backend Development',
-      items: ['Node.js / Express.js', 'Python / Django / Flask', 'Java / Spring Boot', 'C# / .NET Core', 'RESTful APIs / GraphQL', 'Microservices Architecture']
+      category: "⚙️ Backend Development",
+      items: ["Node.js / Express.js", "Python / Django / Flask", "Java / Spring Boot", "C# / .NET Core", "RESTful APIs / GraphQL", "Microservices Architecture"]
     },
     {
-      category: '🗄️ Database & Storage',
-      items: ['PostgreSQL / MySQL', 'MongoDB', 'Redis', 'Elasticsearch', 'Database Design', 'Query Optimization']
+      category: "🗄️ Database & Storage",
+      items: ["PostgreSQL / MySQL", "MongoDB", "Redis", "Elasticsearch", "Database Design", "Query Optimization"]
     },
     {
-      category: '☁️ DevOps & Cloud',
-      items: ['AWS / Azure / GCP', 'Docker / Kubernetes', 'CI/CD Pipelines', 'GitHub Actions', 'Terraform', 'Monitoring & Logging']
+      category: "☁️ DevOps & Cloud",
+      items: ["AWS / Azure / GCP", "Docker / Kubernetes", "CI/CD Pipelines", "GitHub Actions", "Terraform", "Monitoring & Logging"]
     }
   ];
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      icon: '🛒',
-      description: 'Full-stack e-commerce solution with user authentication, payment processing, inventory management, and admin dashboard.',
-      techStack: ['React', 'Node.js', 'PostgreSQL', 'Stripe API'],
-      demoLink: '#',
-      codeLink: '#'
+      title: "E-Commerce Platform",
+      icon: "🛒",
+      description: "Full-stack e-commerce solution with user authentication, payment processing, inventory management, and admin dashboard.",
+      techStack: ["React", "Node.js", "PostgreSQL", "Stripe API"],
+      demoLink: "#",
+      codeLink: "#"
     },
     {
-      title: 'Analytics Dashboard',
-      icon: '📊',
-      description: 'Real-time data visualization dashboard with interactive charts, filters, and export functionality for business intelligence.',
-      techStack: ['Vue.js', 'D3.js', 'Python', 'FastAPI'],
-      demoLink: '#',
-      codeLink: '#'
+      title: "Analytics Dashboard",
+      icon: "📊",
+      description: "Real-time data visualization dashboard with interactive charts, filters, and export functionality for business intelligence.",
+      techStack: ["Vue.js", "D3.js", "Python", "FastAPI"],
+      demoLink: "#",
+      codeLink: "#"
     },
     {
-      title: 'Real-time Chat App',
-      icon: '💬',
-      description: 'Scalable chat application with real-time messaging, file sharing, user presence, and room management features.',
-      techStack: ['Socket.io', 'Express', 'MongoDB', 'Redis'],
-      demoLink: '#',
-      codeLink: '#'
+      title: "Real-time Chat App",
+      icon: "💬",
+      description: "Scalable chat application with real-time messaging, file sharing, user presence, and room management features.",
+      techStack: ["Socket.io", "Express", "MongoDB", "Redis"],
+      demoLink: "#",
+      codeLink: "#"
     }
   ];
 
   return (
     <div className={`min-h-screen transition-all duration-300 ${
       isDarkMode 
-        ? 'bg-gradient-to-br from-slate-900 to-slate-800 text-slate-100' 
-        : 'bg-gradient-to-br from-indigo-500 to-purple-600 text-gray-800'
+        ? "bg-gradient-to-br from-slate-900 to-slate-800 text-slate-100" 
+        : "bg-gradient-to-br from-indigo-500 to-purple-600 text-gray-800"
     }`}>
       {/* Rising Bubbles Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -140,7 +140,7 @@ export default function Portfolio() {
           <div
             key={i}
             className={`absolute bottom-0 rounded-full animate-rise ${
-              isDarkMode ? 'bg-indigo-400/10' : 'bg-white/10'
+              isDarkMode ? "bg-indigo-400/10" : "bg-white/10"
             }`}
             style={{
               left: bubble.left,
@@ -156,25 +156,25 @@ export default function Portfolio() {
       {/* Navigation */}
       <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         isNavScrolled 
-          ? (isDarkMode ? 'bg-slate-900/95 shadow-xl' : 'bg-white/95 shadow-xl')
-          : 'bg-transparent'
+          ? (isDarkMode ? "bg-slate-900/95 shadow-xl" : "bg-white/95 shadow-xl")
+          : "bg-transparent"
       } backdrop-blur-sm`}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <div className={`text-xl font-bold ${
-              isDarkMode ? 'text-indigo-400' : 'text-gray-800'
+              isDarkMode ? "text-indigo-400" : "text-gray-800"
             }`}>
               GilmarLP.dev
             </div>
             
             <div className="flex items-center space-x-8">
               <div className="hidden md:flex space-x-6">
-                {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
+                {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
                   <button
                     key={item}
                     onClick={() => scrollToSection(item.toLowerCase())}
                     className={`font-medium transition-colors duration-200 hover:text-indigo-500 ${
-                      isDarkMode ? 'text-slate-100' : 'text-gray-800'
+                      isDarkMode ? "text-slate-100" : "text-gray-800"
                     }`}
                   >
                     {item}
@@ -186,12 +186,12 @@ export default function Portfolio() {
                 onClick={() => setIsDarkMode(!isDarkMode)}
                 className={`flex items-center space-x-2 px-3 py-2 rounded-full border-2 transition-all duration-200 ${
                   isDarkMode 
-                    ? 'border-slate-400 text-slate-100 hover:bg-indigo-500/20' 
-                    : 'border-gray-600 text-gray-800 hover:bg-indigo-500/20'
+                    ? "border-slate-400 text-slate-100 hover:bg-indigo-500/20" 
+                    : "border-gray-600 text-gray-800 hover:bg-indigo-500/20"
                 }`}
               >
-                <span>{isDarkMode ? '☀️' : '🌙'}</span>
-                <span className="text-sm">{isDarkMode ? 'Light' : 'Dark'}</span>
+                <span>{isDarkMode ? "☀️" : "🌙"}</span>
+                <span className="text-sm">{isDarkMode ? "Light" : "Dark"}</span>
               </button>
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function Portfolio() {
             Full Stack Developer & Problem Solver
           </p>
           <button
-            onClick={() => scrollToSection('projects')}
+            onClick={() => scrollToSection("projects")}
             className="inline-block px-8 py-4 bg-white/20 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-indigo-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl animate-fade-in-up animation-delay-400"
           >
             View My Work
@@ -218,7 +218,7 @@ export default function Portfolio() {
 
       {/* About Section */}
       <section id="about" className={`py-20 ${
-        isDarkMode ? 'bg-slate-800' : 'bg-white'
+        isDarkMode ? "bg-slate-800" : "bg-white"
       }`}>
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">
@@ -235,13 +235,13 @@ export default function Portfolio() {
             
             <div className="space-y-6 text-lg">
               <p>
-                Teste de texto 1
+                I'm a passionate full-stack developer with expertise in both frontend and backend technologies. I love creating scalable, efficient, and user-friendly applications that solve real-world problems.
               </p>
               <p>
-                Teste de texto 2
+                With experience in modern frameworks and cloud technologies, I bring ideas to life through clean code, thoughtful architecture, and attention to detail. I'm always eager to learn new technologies and tackle challenging projects.
               </p>
               <p>
-                Teste de texto 3
+                When I'm not coding, you can find me exploring new tech trends, contributing to open source projects, or sharing knowledge with the developer community.
               </p>
             </div>
           </div>
@@ -250,7 +250,7 @@ export default function Portfolio() {
 
       {/* Skills Section */}
       <section id="skills" className={`py-20 ${
-        isDarkMode ? 'bg-slate-900' : 'bg-gray-50'
+        isDarkMode ? "bg-slate-900" : "bg-gray-50"
       }`}>
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">
@@ -264,8 +264,8 @@ export default function Portfolio() {
                 key={index}
                 className={`p-6 rounded-xl shadow-lg transition-all duration-300 hover:transform hover:-translate-y-2 ${
                   isDarkMode 
-                    ? 'bg-slate-800 border border-slate-700' 
-                    : 'bg-white'
+                    ? "bg-slate-800 border border-slate-700" 
+                    : "bg-white"
                 }`}
               >
                 <h3 className="text-lg font-semibold text-indigo-500 mb-4">
@@ -276,7 +276,7 @@ export default function Portfolio() {
                     <li
                       key={skillIndex}
                       className={`py-2 border-b last:border-b-0 ${
-                        isDarkMode ? 'border-slate-700' : 'border-gray-200'
+                        isDarkMode ? "border-slate-700" : "border-gray-200"
                       }`}
                     >
                       {skill}
@@ -291,7 +291,7 @@ export default function Portfolio() {
 
       {/* Projects Section */}
       <section id="projects" className={`py-20 ${
-        isDarkMode ? 'bg-slate-800' : 'bg-white'
+        isDarkMode ? "bg-slate-800" : "bg-white"
       }`}>
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">
@@ -305,8 +305,8 @@ export default function Portfolio() {
                 key={index}
                 className={`rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl ${
                   isDarkMode 
-                    ? 'bg-slate-900 border border-slate-700' 
-                    : 'bg-white'
+                    ? "bg-slate-900 border border-slate-700" 
+                    : "bg-white"
                 }`}
               >
                 <div className="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-4xl">
@@ -318,7 +318,7 @@ export default function Portfolio() {
                     {project.title}
                   </h3>
                   <p className={`mb-4 ${
-                    isDarkMode ? 'text-slate-300' : 'text-gray-600'
+                    isDarkMode ? "text-slate-300" : "text-gray-600"
                   }`}>
                     {project.description}
                   </p>
@@ -329,8 +329,8 @@ export default function Portfolio() {
                         key={techIndex}
                         className={`px-3 py-1 text-sm rounded-full ${
                           isDarkMode 
-                            ? 'bg-slate-700 text-slate-300' 
-                            : 'bg-gray-100 text-gray-600'
+                            ? "bg-slate-700 text-slate-300" 
+                            : "bg-gray-100 text-gray-600"
                         }`}
                       >
                         {tech}
@@ -361,7 +361,7 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       {/* <section id="contact" className={`py-20 ${
-        isDarkMode ? 'bg-slate-900' : 'bg-gray-50'
+        isDarkMode ? "bg-slate-900" : "bg-gray-50"
       }`}>
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">
@@ -371,8 +371,8 @@ export default function Portfolio() {
           
           <div className="text-center mb-8">
             <p className="text-lg">
-              I'm always interested in new opportunities and exciting projects. 
-              Let's discuss how we can work together to bring your ideas to life!
+              I"m always interested in new opportunities and exciting projects. 
+              Let"s discuss how we can work together to bring your ideas to life!
             </p>
           </div>
           
@@ -388,8 +388,8 @@ export default function Portfolio() {
                   required
                   className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 ${
                     isDarkMode 
-                      ? 'bg-slate-800 border-slate-600 text-white focus:border-indigo-500' 
-                      : 'bg-white border-gray-300 focus:border-indigo-500'
+                      ? "bg-slate-800 border-slate-600 text-white focus:border-indigo-500" 
+                      : "bg-white border-gray-300 focus:border-indigo-500"
                   } focus:outline-none`}
                 />
               </div>
@@ -403,8 +403,8 @@ export default function Portfolio() {
                   required
                   className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 ${
                     isDarkMode 
-                      ? 'bg-slate-800 border-slate-600 text-white focus:border-indigo-500' 
-                      : 'bg-white border-gray-300 focus:border-indigo-500'
+                      ? "bg-slate-800 border-slate-600 text-white focus:border-indigo-500" 
+                      : "bg-white border-gray-300 focus:border-indigo-500"
                   } focus:outline-none`}
                 />
               </div>
@@ -420,8 +420,8 @@ export default function Portfolio() {
                 required
                 className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 ${
                   isDarkMode 
-                    ? 'bg-slate-800 border-slate-600 text-white focus:border-indigo-500' 
-                    : 'bg-white border-gray-300 focus:border-indigo-500'
+                    ? "bg-slate-800 border-slate-600 text-white focus:border-indigo-500" 
+                    : "bg-white border-gray-300 focus:border-indigo-500"
                 } focus:outline-none`}
               />
             </div>
@@ -436,8 +436,8 @@ export default function Portfolio() {
                 rows={6}
                 className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 resize-vertical ${
                   isDarkMode 
-                    ? 'bg-slate-800 border-slate-600 text-white focus:border-indigo-500' 
-                    : 'bg-white border-gray-300 focus:border-indigo-500'
+                    ? "bg-slate-800 border-slate-600 text-white focus:border-indigo-500" 
+                    : "bg-white border-gray-300 focus:border-indigo-500"
                 } focus:outline-none`}
               />
             </div>
@@ -448,7 +448,7 @@ export default function Portfolio() {
                 disabled={isSubmitting}
                 className="px-8 py-4 bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:-translate-y-1"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </div>
           </form>
@@ -457,11 +457,11 @@ export default function Portfolio() {
 
       {/* Footer */}
       <footer className={`py-12 ${
-        isDarkMode ? 'bg-slate-800 border-t border-slate-700' : 'bg-gray-800'
+        isDarkMode ? "bg-slate-800 border-t border-slate-700" : "bg-gray-800"
       }`}>
         <div className="max-w-6xl mx-auto px-4 text-center">
           <div className="flex justify-center space-x-6 mb-6">
-            {['📧', '💼', '🐙', '🐦'].map((icon, index) => (
+            {["📧", "💼", "🐙", "🐦"].map((icon, index) => (
               <a
                 key={index}
                 href="#"
