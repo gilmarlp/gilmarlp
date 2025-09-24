@@ -235,13 +235,13 @@ export default function Portfolio() {
             
             <div className="space-y-6 text-lg">
               <p>
-                I'm a passionate full-stack developer with expertise in both frontend and backend technologies. I love creating scalable, efficient, and user-friendly applications that solve real-world problems.
+                Teste de texto 1
               </p>
               <p>
-                With experience in modern frameworks and cloud technologies, I bring ideas to life through clean code, thoughtful architecture, and attention to detail. I'm always eager to learn new technologies and tackle challenging projects.
+                Teste de texto 2
               </p>
               <p>
-                When I'm not coding, you can find me exploring new tech trends, contributing to open source projects, or sharing knowledge with the developer community.
+                Teste de texto 3
               </p>
             </div>
           </div>
